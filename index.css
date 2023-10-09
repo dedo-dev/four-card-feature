@@ -51,12 +51,19 @@ img {
   /* typography */
   --ff-poppins: 'Poppins', sans-serif;
   --fs-body: .9375rem;
+  
   --fsm-heading: 1.5rem;
   --fst-heading: 1.75rem;
   --fsd-heading: 1.75rem;
+  
+  --fsm-cardTitle: 1.2rem;
+  --fst-cardTitle: 1.4rem;
   --fsd-cardTitle: 1.4rem;
-  --fsd-cardTitle: 1.4rem;
-  --fsd-cardTitle: 1.4rem;
+ 
+  --fsm-cardText: .875rem;
+  --fst-cardText: 1.4rem;
+  --fsd-cardText: 1.4rem;
+  
   --fw-200: 200;
   --fw-400: 400;
   --fw-600: 600;
@@ -67,19 +74,22 @@ img {
 body {
   font-family: var(--ff-poppins);
   font-size: var(--fs-body);
+  text-align: center;
   background: var(--clr-lightGray);
-  /* color: var(--clr-grayishBlue); */
+  color: var(--clr-grayishBlue);
 }
 
 /* introduction section */
 .introduction {
   width: 80%;
+  max-width: 20rem;
   margin: 5rem auto;
 }
 
 .introduction__heading {
   font-size: var(--fsm-heading);
   font-weight: var(--fw-200);
+  color: var(--clr-darkBlue);
   margin-bottom: 1.2rem;
 }
 
@@ -88,7 +98,110 @@ body {
 }
 
 /* card section */
+.card-wrapper {
+  margin-bottom: 5rem;
+}
+
+.card + .card {
+  margin-top: 1.3rem;
+}
+
 .card {
+  position: relative;
+  overflow: hidden;
+  text-align: left;
   width: 85%;
+  max-width: 23rem;
   margin: 0 auto;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.1);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--clr-cyan);  
+}
+
+.card--team-builder::before {
+  background: var(--clr-red);
+}
+
+.card--karma:before {
+  background: var(--clr-orange);
+}
+
+.card--calculator::before {
+  background: var(--clr-blue)
+}
+
+.card__title {
+  font-size: var(--fsm-cardTitle);
+  color: var(--clr-darkBlue);
+  margin-bottom: .25rem;
+}
+
+.card__content {
+  font-size: var(--fsm-cardText);
+}
+
+.icon {
+  width: 3rem;
+  margin-left: auto;
+  margin-top: 3rem;
+}
+
+footer {
+  margin-block: 2rem;
+}
+
+/* ******************************************* */
+/* **********   RESTART FROM HERE   ********** */
+/* ******************************************* */
+@media (min-width: 768px) {
+
+  .introduction {
+    width: 100%;
+    margin-block: 2rem;
+  }
+
+  .card-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template: /*50% 1fr 50%*/ repeat(4, 1fr) / repeat(3, 1fr);
+    grid-template-areas: 
+        ". t  ."
+        "l t  r"
+        "l b  r"
+        ". b  .";
+  }
+
+  .card--supervisor {
+    grid-area: l;
+  }
+
+  .card--team-builder {
+    grid-area: t;
+  }
+
+  .card--calculator {
+    grid-area: r;
+    /* justify-self: end; */
+  }
+
+  .card--karma {
+    grid-area: b;
+  }
+
+  .card {
+    width: 100%;
+
+  }
 }
