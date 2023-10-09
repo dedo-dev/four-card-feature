@@ -1,0 +1,94 @@
+/* ---------- CSS RESET ---------- */
+
+/* box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* prevent font-size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* remove default margin */
+body, h1, h2, p {
+  margin: 0;
+}
+
+/* core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* set line heights on heading & balance text-wrap
+h1, h2 {
+  line-height: 1.5; 
+}
+*/
+
+/* responsive img */
+img {
+  width: 100%;
+  display: block;
+}
+
+/* ---------- CSS VARIABLE ---------- */
+
+:root {
+
+  /* color system */
+  --clr-red: hsl(0, 78%, 62%);
+  --clr-cyan: hsl(180, 62%, 55%);
+  --clr-orange: hsl(34, 97%, 64%);
+  --clr-blue: hsl(212, 86%, 64%);
+  --clr-darkBlue: hsl(234, 12%, 34%);
+  --clr-grayishBlue: hsl(229, 6%, 66%);
+  --clr-lightGray: hsl(0, 0%, 98%);
+
+  /* typography */
+  --ff-poppins: 'Poppins', sans-serif;
+  --fs-body: .9375rem;
+  --fsm-heading: 1.5rem;
+  --fst-heading: 1.75rem;
+  --fsd-heading: 1.75rem;
+  --fsd-cardTitle: 1.4rem;
+  --fsd-cardTitle: 1.4rem;
+  --fsd-cardTitle: 1.4rem;
+  --fw-200: 200;
+  --fw-400: 400;
+  --fw-600: 600;
+}
+
+/* ---------- CHALLENGE STYLING ---------- */
+
+body {
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-body);
+  background: var(--clr-lightGray);
+  /* color: var(--clr-grayishBlue); */
+}
+
+/* introduction section */
+.introduction {
+  width: 80%;
+  margin: 5rem auto;
+}
+
+.introduction__heading {
+  font-size: var(--fsm-heading);
+  font-weight: var(--fw-200);
+  margin-bottom: 1.2rem;
+}
+
+.bold {
+  font-weight: var(--fw-600);
+}
+
+/* card section */
+.card {
+  width: 85%;
+  margin: 0 auto;
+}
