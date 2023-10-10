@@ -23,11 +23,11 @@ body {
   line-height: 1.5;
 }
 
-/* set line heights on heading & balance text-wrap
+/* set line heights on heading & balance text-wrap */
 h1, h2 {
-  line-height: 1.5; 
+  line-height: 1.4; 
 }
-*/
+
 
 /* responsive img */
 img {
@@ -53,16 +53,10 @@ img {
   --fs-body: .9375rem;
   
   --fsm-heading: 1.5rem;
-  --fst-heading: 1.75rem;
   --fsd-heading: 1.75rem;
   
   --fsm-cardTitle: 1.2rem;
-  --fst-cardTitle: 1.4rem;
-  --fsd-cardTitle: 1.4rem;
- 
   --fsm-cardText: .875rem;
-  --fst-cardText: 1.4rem;
-  --fsd-cardText: 1.4rem;
   
   --fw-200: 200;
   --fw-400: 400;
@@ -160,27 +154,41 @@ footer {
   margin-block: 2rem;
 }
 
-/* ******************************************* */
-/* **********   RESTART FROM HERE   ********** */
-/* ******************************************* */
-@media (min-width: 768px) {
+/* media-query tablet > desktop */
+@media (min-width: 48em) {
 
   .introduction {
     width: 100%;
-    margin-block: 2rem;
+    max-width: 32rem;
+    margin-block: 3rem;
+  }
+
+  .introduction__heading {
+    font-size: var(--fsd-heading);
+    width: 80%;
+    margin-inline: auto;
   }
 
   .card-wrapper {
     width: 90%;
     margin: 0 auto;
     display: grid;
-    grid-gap: 1rem;
-    grid-template: /*50% 1fr 50%*/ repeat(4, 1fr) / repeat(3, 1fr);
+    grid-gap: 1.5rem;
+    justify-content: center;
+    grid-template: repeat(4, 1fr) / repeat(3, minmax(1fr, 23rem));
     grid-template-areas: 
         ". t  ."
         "l t  r"
         "l b  r"
         ". b  .";
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card + .card {
+    margin-top: 0;
   }
 
   .card--supervisor {
@@ -193,15 +201,12 @@ footer {
 
   .card--calculator {
     grid-area: r;
-    /* justify-self: end; */
   }
 
   .card--karma {
     grid-area: b;
   }
-
-  .card {
-    width: 100%;
-
-  }
 }
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: var(--clr-red); text-decoration: none; font-weight: bold;}
